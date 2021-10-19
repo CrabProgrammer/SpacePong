@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Training.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/PlaySolo.unity
+    guid: 8db11c07a00cd354082e58d320144dc8
+  - enabled: 1
+    path: Assets/Scenes/Multiplayer.unity
+    guid: 476f33d4790567a4b9d1e9ca4231932c
   m_configObjects: {}

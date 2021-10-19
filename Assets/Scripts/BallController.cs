@@ -6,15 +6,23 @@ public class BallController : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private int thrust;
+    AudioSource BallAudio;
     private Rigidbody2D rb;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        BallAudio = GetComponent<AudioSource>();
+
     }
     public void StopBall()
     {
         transform.position = Vector2.zero;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        BallAudio.Play();
     }
     public void ResetBall()
     {

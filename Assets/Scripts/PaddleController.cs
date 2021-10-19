@@ -18,11 +18,18 @@ public class PaddleController : MonoBehaviour
     }
     private void Movement()
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 myPosition = rigidBody.position;
-        myPosition.y = Mathf.Lerp(myPosition.y, mousePosition.y, 10);
-        myPosition.y = Mathf.Clamp(myPosition.y,-3.7f,3.7f);
-        rigidBody.position = myPosition;
+        foreach(Touch touch in Input.touches)
+        {
+            Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+            Vector2 myPosition = rigidBody.position;
+            if (Mathf.Abs(touchPosition.x - myPosition.x) <= 5)
+            {
+                myPosition.y = Mathf.Lerp(myPosition.y, touchPosition.y, 10);
+                myPosition.y = Mathf.Clamp(myPosition.y, -3.7f, 3.7f);
+                rigidBody.position = myPosition;
+            }
+        }
+
 
     }
 }
